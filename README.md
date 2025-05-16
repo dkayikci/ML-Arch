@@ -2,41 +2,80 @@
 ML-Arch: Machine Learning for Archaeological Classification
 
 ML-Arch: Machine Learning for Archaeological Classification
-Authors: Deniz Kayıkçı (0000-0002-1311-4272) and Prof. Dr. Juan Antonio Barceló
-Institution: Universitat Autònoma de Barcelona – Quantitative Archaeology Lab
+Authors: Deniz Kayıkçı (0000-0002-1311-4272), Prof. Dr. Juan Antonio Barceló and Iban Berganzo-Besga 
+Institution: Universitat Autònoma de Barcelona – Quantitative Archaeology Lab and Barcelona Supercomputing Centre
 Study: Archaeological Classification of Small Datasets Using Meta- and Transfer Learning
 
+Archaeological Classification of Hittite Stele Fragments Using Meta- and Transfer Learning
+Show Image
+Project Overview
+This repository contains code and resources for classifying fragmented Hittite stele artifacts according to their geographical provenance (Alacahöyük, Arslantepe, Karkamış, or Sakçagözü) based on visual characteristics. The research addresses a fundamental challenge in archaeological classification: how to achieve accurate results with small, non-standardized, and highly degraded datasets.
+Show Image
+Research Problem
+Archaeological datasets typically suffer from several limitations:
 
-Overview
-This repository contains the code and methodological implementation for our paper on classifying fragmented Hittite stele fragments using advanced machine learning methods. The key challenge addressed is working with very small and degraded archaeological datasets, a common issue in archaeology.
+Small sample sizes (low-source-data)
+Fragmented or deteriorated objects
+Non-standardized and heterogeneous documentation
 
-We explore and compare the following techniques:
+This research demonstrates that advanced machine learning approaches can effectively overcome these constraints and outperform traditional classification methods, and in some cases, match human expert performance.
+Dataset
+The dataset consists of Hittite stele images from four archaeological sites in Anatolia (modern-day Turkey):
 
-Classical Machine Learning (SVM, KNN, RF, etc.)
+Alacahöyük
+Arslantepe
+Karkamış
+Sakçagözü
 
-Transfer Learning using ResNet18
+Two dataset configurations were evaluated:
 
-Simple CNN with Few-Shot Learning (FSL)
+Initial Dataset: 136 samples (112 training, 24 testing)
+Enhanced Dataset: 208 samples (152 training, 56 testing)
 
-A Hybrid Meta-Learning model using MAML + ResNet18 + FSL
+Images were captured under controlled conditions at the Ankara Anatolian Civilizations Museum and were preprocessed to simulate real-world archaeological classification challenges.
+Methodology
+We compared four machine learning approaches:
 
-Our models aim to predict the geographical provenance of stelae from four Hittite cities (Alacahöyük, Arslantepe, Karkamış, and Sakçagözü) based purely on image data.
+Conventional Machine Learning Algorithms:
 
-Key Features
-📉 Few-Shot Learning (FSL) and Meta-Learning (MAML) strategies for low-resource archaeological classification tasks
+Support Vector Machines (SVM)
+K-Nearest Neighbors (KNN)
+Random Forests (RF)
+Logistic Regression (LR)
+Decision Trees (DT)
+Naive Bayes (NB)
 
-🧠 Comparison with human expert classification performance (62.5% accuracy benchmark)
 
-🏛️ Dataset sourced from Ankara Anatolian Civilizations Museum
+Transfer Learning:
 
-📊 Evaluation via 3-fold cross-validation
+Pre-trained ResNet18 model with fine-tuning
 
-📦 Pretrained models with PyTorch and Scikit-learn
 
-📂 Organized directory structure for support/query sets per class
+Simple CNN with Few-Shot Learning:
 
-Installation
-We recommend using a virtual environment and conda for dependency management.
+Custom convolutional neural network with FSL integration
+
+
+Hybrid Approach:
+
+Combination of Model-Agnostic Meta-Learning (MAML)
+Few-Shot Learning (FSL)
+Transfer Learning (ResNet18)
+
+
+
+Performance was evaluated against human expert classification as a benchmark.
+Key Findings
+
+The hybrid model achieved 82.74% accuracy on the enhanced dataset, comparable to human expert performance (85.7%)
+Conventional ML methods showed poor generalization, with misclassification rates near 50%
+Transfer learning (ResNet18) demonstrated high consistency across validation folds
+Neural networks outperformed traditional methods even with extremely limited training data
+Human experts and AI models showed complementary classification strengths
+
+
+
+
 
 PyTorch (tested on 2.0+)
 
